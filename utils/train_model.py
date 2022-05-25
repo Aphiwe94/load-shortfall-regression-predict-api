@@ -26,6 +26,6 @@ print ("Training Model...")
 lm_regression.fit(X_train, y_train)
 
 # Pickle model for use within our API
-save_path = '../assets/trained-models/mlr_lm_4.pkl'
+save_path = '../assets/trained-models/xgb_boost_trained.pkl'
 print (f"Training completed. Saving model to: {save_path}")
 pickle.dump(lm_regression, open(save_path,'wb'))
