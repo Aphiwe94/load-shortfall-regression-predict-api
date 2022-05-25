@@ -89,8 +89,9 @@ def load_model(path_to_model:str):
     -------
     <class: sklearn.estimator>
         The pretrained model loaded into memory.
-
+    
     """
+    path_to_model = xgb_boost_trained.pkl
     return pickle.load(open(path_to_model, 'rb'))
 
 
