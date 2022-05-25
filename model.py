@@ -45,6 +45,7 @@ def _preprocess_data(data):
         The preprocessed data, ready to be used our model for prediction.
     """
     # Convert the json string to a python dictionary object
+    print(data)
     feature_vector_dict = json.loads(data)
     # Load the dictionary as a Pandas DataFrame.
     feature_vector_df = pd.DataFrame.from_dict([feature_vector_dict])
@@ -57,10 +58,21 @@ def _preprocess_data(data):
     # receive marks for submitting this code in an unchanged state.
     # ---------------------------------------------------------------
 
-    # ----------- Replace this code with your own preprocessing steps --------
-    predict_vector = feature_vector_df[['Madrid_wind_speed','Bilbao_rain_1h','Valencia_wind_speed']]
-    # ------------------------------------------------------------------------
+    
 
+    # ----------- Replace this code with your own preprocessing steps --------
+    # feature_vector_df = feature_vector_df.drop(['time', "Unnamed: 0", 'Valencia_wind_speed','Seville_pressure','Valencia_wind_deg','Barcelona_wind_speed','Valencia_pressure'], axis=1).values
+    
+    # feature_vector_df["time"] = pd.to_datetime(feature_vector_df["time"])
+    # feature_vector_df["Hour"] = feature_vector_df["time"].dt.hour.astype('int64')
+    # feature_vector_df["DayOfWeek"] = feature_vector_df["time"].dt.dayofweek.astype('int64')
+    
+    # feature_vector_df = feature_vector_df.drop(columns=['Valencia_wind_deg','Unnamed: 0', 'time', 'Valencia_wind_speed','Seville_pressure','Barcelona_wind_speed','Valencia_pressure', 'Valencia_wind_deg'], axis=1).values
+    feature_vector_df = feature_vector_df.drop(columns=["Unnamed: 0", "Valencia_wind_deg",'time', 'Seville_pressure', 'Valencia_wind_speed','Barcelona_wind_speed','Valencia_pressure'], axis=1).values
+    predict_vector = feature_vector_df
+    # predict_vector = feature_vector_df[['Madrid_wind_speed','Bilbao_rain_1h','Valencia_wind_speed']]
+    # ------------------------------------------------------------------------
+    
     return predict_vector
 
 def load_model(path_to_model:str):
