@@ -23,6 +23,7 @@ import json
 import numpy as np
 from model import load_model, make_prediction
 from flask import Flask, request, jsonify
+from xgboost import XGBRegressor
 
 # Application definition
 app = Flask(__name__)
@@ -32,7 +33,7 @@ app = Flask(__name__)
 static_model = load_model(
     # path_to_model=r'assets\trained-models\load_shortfall_simple_lm_regression.pkl')
     path_to_model=r'assets\trained-models\xgb_boost_trained.pkl')
-
+    
 print ('-'*40)
 print ('Model successfully loaded')
 print ('-'*40)
