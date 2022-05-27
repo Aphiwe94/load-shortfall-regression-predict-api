@@ -40,7 +40,7 @@ print(feature_vector_json)
 # replace the URL below with its public IP:
 
 # url = 'http://http://192.168.0.110:5000/api_v0.1'
-url = 'http://34.245.123.5:5000/api_v0.1'
+url = 'http://54.155.105.0:5000/api_v0.1'
 
 # Perform the POST request.
 print(f"Sending POST request to web server API at: {url}")
